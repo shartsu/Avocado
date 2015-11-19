@@ -1,0 +1,488 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		52967BD91BFE78250037985B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52967BD81BFE78250037985B /* Main.storyboard */; };
+		52B0F5D71BFA74CB005B90B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B0F5D61BFA74CB005B90B8 /* AppDelegate.swift */; };
+		52B0F5DE1BFA74CB005B90B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52B0F5DD1BFA74CB005B90B8 /* Assets.xcassets */; };
+		52B0F5EC1BFA74CB005B90B8 /* AvocadoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B0F5EB1BFA74CB005B90B8 /* AvocadoTests.swift */; };
+		52B0F5F71BFA74CB005B90B8 /* AvocadoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B0F5F61BFA74CB005B90B8 /* AvocadoUITests.swift */; };
+		52B0F6051BFA765F005B90B8 /* SWViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B0F6041BFA765F005B90B8 /* SWViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		52B0F5E81BFA74CB005B90B8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 52B0F5CB1BFA74CB005B90B8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 52B0F5D21BFA74CB005B90B8;
+			remoteInfo = Avocado;
+		};
+		52B0F5F31BFA74CB005B90B8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 52B0F5CB1BFA74CB005B90B8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 52B0F5D21BFA74CB005B90B8;
+			remoteInfo = Avocado;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		52967BD81BFE78250037985B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		52B0F5D31BFA74CB005B90B8 /* Avocado.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Avocado.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		52B0F5D61BFA74CB005B90B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		52B0F5DD1BFA74CB005B90B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		52B0F5E21BFA74CB005B90B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52B0F5E71BFA74CB005B90B8 /* AvocadoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AvocadoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		52B0F5EB1BFA74CB005B90B8 /* AvocadoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvocadoTests.swift; sourceTree = "<group>"; };
+		52B0F5ED1BFA74CB005B90B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52B0F5F21BFA74CB005B90B8 /* AvocadoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AvocadoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		52B0F5F61BFA74CB005B90B8 /* AvocadoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvocadoUITests.swift; sourceTree = "<group>"; };
+		52B0F5F81BFA74CB005B90B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52B0F6041BFA765F005B90B8 /* SWViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SWViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		52B0F5D01BFA74CB005B90B8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52B0F5E41BFA74CB005B90B8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52B0F5EF1BFA74CB005B90B8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		52B0F5CA1BFA74CB005B90B8 = {
+			isa = PBXGroup;
+			children = (
+				52B0F5D51BFA74CB005B90B8 /* Avocado */,
+				52B0F5EA1BFA74CB005B90B8 /* AvocadoTests */,
+				52B0F5F51BFA74CB005B90B8 /* AvocadoUITests */,
+				52B0F5D41BFA74CB005B90B8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		52B0F5D41BFA74CB005B90B8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				52B0F5D31BFA74CB005B90B8 /* Avocado.app */,
+				52B0F5E71BFA74CB005B90B8 /* AvocadoTests.xctest */,
+				52B0F5F21BFA74CB005B90B8 /* AvocadoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		52B0F5D51BFA74CB005B90B8 /* Avocado */ = {
+			isa = PBXGroup;
+			children = (
+				52B0F5D61BFA74CB005B90B8 /* AppDelegate.swift */,
+				52B0F5DD1BFA74CB005B90B8 /* Assets.xcassets */,
+				52967BD81BFE78250037985B /* Main.storyboard */,
+				52B0F5E21BFA74CB005B90B8 /* Info.plist */,
+				52B0F6041BFA765F005B90B8 /* SWViewController.swift */,
+			);
+			path = Avocado;
+			sourceTree = "<group>";
+		};
+		52B0F5EA1BFA74CB005B90B8 /* AvocadoTests */ = {
+			isa = PBXGroup;
+			children = (
+				52B0F5EB1BFA74CB005B90B8 /* AvocadoTests.swift */,
+				52B0F5ED1BFA74CB005B90B8 /* Info.plist */,
+			);
+			path = AvocadoTests;
+			sourceTree = "<group>";
+		};
+		52B0F5F51BFA74CB005B90B8 /* AvocadoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				52B0F5F61BFA74CB005B90B8 /* AvocadoUITests.swift */,
+				52B0F5F81BFA74CB005B90B8 /* Info.plist */,
+			);
+			path = AvocadoUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		52B0F5D21BFA74CB005B90B8 /* Avocado */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52B0F5FB1BFA74CB005B90B8 /* Build configuration list for PBXNativeTarget "Avocado" */;
+			buildPhases = (
+				52B0F5CF1BFA74CB005B90B8 /* Sources */,
+				52B0F5D01BFA74CB005B90B8 /* Frameworks */,
+				52B0F5D11BFA74CB005B90B8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Avocado;
+			productName = Avocado;
+			productReference = 52B0F5D31BFA74CB005B90B8 /* Avocado.app */;
+			productType = "com.apple.product-type.application";
+		};
+		52B0F5E61BFA74CB005B90B8 /* AvocadoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52B0F5FE1BFA74CB005B90B8 /* Build configuration list for PBXNativeTarget "AvocadoTests" */;
+			buildPhases = (
+				52B0F5E31BFA74CB005B90B8 /* Sources */,
+				52B0F5E41BFA74CB005B90B8 /* Frameworks */,
+				52B0F5E51BFA74CB005B90B8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				52B0F5E91BFA74CB005B90B8 /* PBXTargetDependency */,
+			);
+			name = AvocadoTests;
+			productName = AvocadoTests;
+			productReference = 52B0F5E71BFA74CB005B90B8 /* AvocadoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		52B0F5F11BFA74CB005B90B8 /* AvocadoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52B0F6011BFA74CB005B90B8 /* Build configuration list for PBXNativeTarget "AvocadoUITests" */;
+			buildPhases = (
+				52B0F5EE1BFA74CB005B90B8 /* Sources */,
+				52B0F5EF1BFA74CB005B90B8 /* Frameworks */,
+				52B0F5F01BFA74CB005B90B8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				52B0F5F41BFA74CB005B90B8 /* PBXTargetDependency */,
+			);
+			name = AvocadoUITests;
+			productName = AvocadoUITests;
+			productReference = 52B0F5F21BFA74CB005B90B8 /* AvocadoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		52B0F5CB1BFA74CB005B90B8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = TK;
+				TargetAttributes = {
+					52B0F5D21BFA74CB005B90B8 = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 4T8AL8Y36Z;
+					};
+					52B0F5E61BFA74CB005B90B8 = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 4T8AL8Y36Z;
+						TestTargetID = 52B0F5D21BFA74CB005B90B8;
+					};
+					52B0F5F11BFA74CB005B90B8 = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 4T8AL8Y36Z;
+						TestTargetID = 52B0F5D21BFA74CB005B90B8;
+					};
+				};
+			};
+			buildConfigurationList = 52B0F5CE1BFA74CB005B90B8 /* Build configuration list for PBXProject "Avocado" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 52B0F5CA1BFA74CB005B90B8;
+			productRefGroup = 52B0F5D41BFA74CB005B90B8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				52B0F5D21BFA74CB005B90B8 /* Avocado */,
+				52B0F5E61BFA74CB005B90B8 /* AvocadoTests */,
+				52B0F5F11BFA74CB005B90B8 /* AvocadoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		52B0F5D11BFA74CB005B90B8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52967BD91BFE78250037985B /* Main.storyboard in Resources */,
+				52B0F5DE1BFA74CB005B90B8 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52B0F5E51BFA74CB005B90B8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52B0F5F01BFA74CB005B90B8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		52B0F5CF1BFA74CB005B90B8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52B0F6051BFA765F005B90B8 /* SWViewController.swift in Sources */,
+				52B0F5D71BFA74CB005B90B8 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52B0F5E31BFA74CB005B90B8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52B0F5EC1BFA74CB005B90B8 /* AvocadoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52B0F5EE1BFA74CB005B90B8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52B0F5F71BFA74CB005B90B8 /* AvocadoUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		52B0F5E91BFA74CB005B90B8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 52B0F5D21BFA74CB005B90B8 /* Avocado */;
+			targetProxy = 52B0F5E81BFA74CB005B90B8 /* PBXContainerItemProxy */;
+		};
+		52B0F5F41BFA74CB005B90B8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 52B0F5D21BFA74CB005B90B8 /* Avocado */;
+			targetProxy = 52B0F5F31BFA74CB005B90B8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		52B0F5F91BFA74CB005B90B8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		52B0F5FA1BFA74CB005B90B8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		52B0F5FC1BFA74CB005B90B8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Avocado/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.shartsu.Avocado;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		52B0F5FD1BFA74CB005B90B8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Avocado/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.shartsu.Avocado;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		52B0F5FF1BFA74CB005B90B8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = AvocadoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.shartsu.AvocadoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Avocado.app/Avocado";
+			};
+			name = Debug;
+		};
+		52B0F6001BFA74CB005B90B8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = AvocadoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.shartsu.AvocadoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Avocado.app/Avocado";
+			};
+			name = Release;
+		};
+		52B0F6021BFA74CB005B90B8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = AvocadoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.shartsu.AvocadoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Avocado;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		52B0F6031BFA74CB005B90B8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = AvocadoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.shartsu.AvocadoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Avocado;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		52B0F5CE1BFA74CB005B90B8 /* Build configuration list for PBXProject "Avocado" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52B0F5F91BFA74CB005B90B8 /* Debug */,
+				52B0F5FA1BFA74CB005B90B8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		52B0F5FB1BFA74CB005B90B8 /* Build configuration list for PBXNativeTarget "Avocado" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52B0F5FC1BFA74CB005B90B8 /* Debug */,
+				52B0F5FD1BFA74CB005B90B8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		52B0F5FE1BFA74CB005B90B8 /* Build configuration list for PBXNativeTarget "AvocadoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52B0F5FF1BFA74CB005B90B8 /* Debug */,
+				52B0F6001BFA74CB005B90B8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		52B0F6011BFA74CB005B90B8 /* Build configuration list for PBXNativeTarget "AvocadoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52B0F6021BFA74CB005B90B8 /* Debug */,
+				52B0F6031BFA74CB005B90B8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 52B0F5CB1BFA74CB005B90B8 /* Project object */;
+}
