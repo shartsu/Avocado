@@ -7,7 +7,7 @@ class SWViewController: UIViewController {
     var startTime = NSTimeInterval()
     
     var timer:NSTimer = NSTimer()
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,6 +20,9 @@ class SWViewController: UIViewController {
             timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: aSelector, userInfo: nil, repeats: true)
             startTime = NSDate.timeIntervalSinceReferenceDate()
         }
+        print("hoge")
+        print(timer)
+        print(startTime)
     }
     
     @IBAction func stop(sender: AnyObject) {
@@ -27,29 +30,25 @@ class SWViewController: UIViewController {
     }
     
     func updateTime() {
-        var currentTime = NSDate.timeIntervalSinceReferenceDate()
         
-        //Find the difference between current time and start time.
-        var elapsedTime: NSTimeInterval = currentTime - startTime
+        let currentTime = NSDate.timeIntervalSinceReferenceDate()
         
-        //calculate the minutes in elapsed time.
-        let minutes = UInt8(elapsedTime / 60.0)
-        elapsedTime -= (NSTimeInterval(minutes) * 60)
+        let elapsedTime: NSTimeInterval = currentTime - startTime
+        var countDown: NSTimeInterval = 1500.0 - elapsedTime
+        print(countDown)
+
+        let cdminutes = UInt8(countDown / 60.0)
+        countDown -= (NSTimeInterval(cdminutes) * 60)
         
-        //calculate the seconds in elapsed time.
-        let seconds = UInt8(elapsedTime)
-        elapsedTime -= NSTimeInterval(seconds)
+        let cdseconds = UInt8(countDown)
+        countDown -= NSTimeInterval(cdseconds)
+    
+        let cdfraction = UInt8(countDown * 100)
         
-        //find out the fraction of milliseconds to be displayed.
-        let fraction = UInt8(elapsedTime * 100)
+        let strMinutes = String(format: "%02d", cdminutes)
+        let strSeconds = String(format: "%02d", cdseconds)
+        let strFraction = String(format: "%02d", cdfraction)
         
-        //add the leading zero for minutes, seconds and millseconds and store them as string constants
-        
-        let strMinutes = String(format: "%02d", minutes)
-        let strSeconds = String(format: "%02d", seconds)
-        let strFraction = String(format: "%02d", fraction)
-        
-        //concatenate minuets, seconds and milliseconds as assign it to the UILabel
         displayTimeLabel.text = "\(strMinutes):\(strSeconds):\(strFraction)"
     }
     
