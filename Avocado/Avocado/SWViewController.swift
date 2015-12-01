@@ -20,14 +20,26 @@ class SWViewController: UIViewController {
             timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: aSelector, userInfo: nil, repeats: true)
             startTime = NSDate.timeIntervalSinceReferenceDate()
         }
-        print("hoge")
-        print(timer)
-        print(startTime)
+        //print(timer)
+        //print(startTime)
     }
     
     @IBAction func stop(sender: AnyObject) {
         timer.invalidate()
     }
+    
+    @IBOutlet weak var slider: UISlider!
+    @IBOutlet weak var slidervalue: UILabel!
+    
+    @IBAction func sliderValueChanged(sender: UISlider) {
+        let selectedValue = Float(slider.value)
+        slidervalue.text = String(stringInterpolationSegment: selectedValue)
+        
+        //label.text = "Value = \(slider.value)"
+        //var currentValue = Int(sender.value)
+        print(String(stringInterpolationSegment: selectedValue))
+    }
+    
     
     func updateTime() {
         

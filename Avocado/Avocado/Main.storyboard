@@ -32,7 +32,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uaq-2H-eyI">
-                                <rect key="frame" x="208" y="76" width="175" height="96"/>
+                                <rect key="frame" x="205" y="117" width="175" height="96"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -48,6 +48,18 @@
                                     <action selector="start:" destination="abu-O5-fZd" eventType="touchUpInside" id="7Ii-O6-fJh"/>
                                 </connections>
                             </button>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Msd-o5-v9s">
+                                <rect key="frame" x="74" y="49" width="421" height="31"/>
+                                <connections>
+                                    <action selector="sliderValueChanged:" destination="abu-O5-fZd" eventType="valueChanged" id="TjO-Iv-Ibr"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aNH-8g-npW">
+                                <rect key="frame" x="379" y="77" width="154" height="58"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -64,11 +76,13 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="displayTimeLabel" destination="Uaq-2H-eyI" id="ppA-Bh-HDY"/>
+                        <outlet property="slider" destination="Msd-o5-v9s" id="UUS-Gf-2vD"/>
+                        <outlet property="slidervalue" destination="aNH-8g-npW" id="GLX-J2-AZw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4s6-wn-RGw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="690" y="394"/>
+            <point key="canvasLocation" x="690" y="438"/>
         </scene>
     </scenes>
 </document>
