@@ -5,6 +5,12 @@ class SWViewController: UIViewController {
     @IBOutlet var displayTimeLabel: UILabel!
     
     var startTime = NSTimeInterval()
+    var elapsedTime = NSTimeInterval()
+    var strMinutes = String()
+    var strSeconds = String()
+    var strFraction = String()
+    
+    var suspendFlag = Int()
     
     var timer:NSTimer = NSTimer()
 
@@ -24,6 +30,13 @@ class SWViewController: UIViewController {
         //print(startTime)
     }
     
+    //suspend function
+    @IBAction func suspend(sender: AnyObject) {
+        timer.invalidate()
+        suspendFlag = 1;
+        displayTimeLabel.text = "\(strMinutes):\(strSeconds):\(strFraction)"
+    }
+    
     @IBAction func stop(sender: AnyObject) {
         timer.invalidate()
     }
@@ -35,9 +48,8 @@ class SWViewController: UIViewController {
         let selectedValue = Float(slider.value)
         slidervalue.text = String(stringInterpolationSegment: selectedValue)
         
-        //label.text = "Value = \(slider.value)"
-        //var currentValue = Int(sender.value)
         print(String(stringInterpolationSegment: selectedValue))
+        //print(slider.value)
     }
     
     
@@ -45,10 +57,20 @@ class SWViewController: UIViewController {
         
         let currentTime = NSDate.timeIntervalSinceReferenceDate()
         
-        let elapsedTime: NSTimeInterval = currentTime - startTime
+        //if suspend button has pressed
+        if(suspendFlag == 1) {
+            startTime = startTime - elapsedTime
+        }
+    
+        elapsedTime = currentTime - startTime
         var countDown: NSTimeInterval = 1500.0 - elapsedTime
         print(countDown)
-
+        
+        //=== slider (should be placed here)===
+        slider.value = Float(countDown);
+        slidervalue.text = String(Float(slider.value));
+        //==============
+        
         let cdminutes = UInt8(countDown / 60.0)
         countDown -= (NSTimeInterval(cdminutes) * 60)
         
@@ -57,11 +79,13 @@ class SWViewController: UIViewController {
     
         let cdfraction = UInt8(countDown * 100)
         
-        let strMinutes = String(format: "%02d", cdminutes)
-        let strSeconds = String(format: "%02d", cdseconds)
-        let strFraction = String(format: "%02d", cdfraction)
+        strMinutes = String(format: "%02d", cdminutes)
+        strSeconds = String(format: "%02d", cdseconds)
+        strFraction = String(format: "%02d", cdfraction)
         
         displayTimeLabel.text = "\(strMinutes):\(strSeconds):\(strFraction)"
+        
+        suspendFlag = 0
     }
     
     
