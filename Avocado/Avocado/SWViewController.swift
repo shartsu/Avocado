@@ -3,14 +3,20 @@ import UIKit
 class SWViewController: UIViewController {
     
     @IBOutlet var displayTimeLabel: UILabel!
+    @IBOutlet weak var slider: UISlider!
+    @IBOutlet weak var slidervalue: UILabel!
     
     var startTime = NSTimeInterval()
     var elapsedTime = NSTimeInterval()
+    var suspendedTime = NSTimeInterval()
+    var sliderChangedTime = NSTimeInterval()
+    
     var strMinutes = String()
     var strSeconds = String()
     var strFraction = String()
     
     var suspendFlag = Int()
+    var sliderChangedFlag = Int()
     
     var timer:NSTimer = NSTimer()
 
@@ -34,37 +40,60 @@ class SWViewController: UIViewController {
     @IBAction func suspend(sender: AnyObject) {
         timer.invalidate()
         suspendFlag = 1;
+        
         displayTimeLabel.text = "\(strMinutes):\(strSeconds):\(strFraction)"
     }
     
-    @IBAction func stop(sender: AnyObject) {
+    @IBAction func reset(sender: AnyObject) {
         timer.invalidate()
+        displayTimeLabel.text = "25:00:00"
     }
-    
-    @IBOutlet weak var slider: UISlider!
-    @IBOutlet weak var slidervalue: UILabel!
     
     @IBAction func sliderValueChanged(sender: UISlider) {
         let selectedValue = Float(slider.value)
         slidervalue.text = String(stringInterpolationSegment: selectedValue)
+
+        sliderChangedFlag = 1;
+        sliderChangedTime = Double(slider.value)
         
-        print(String(stringInterpolationSegment: selectedValue))
-        //print(slider.value)
+        /*
+        let sliderminutes = UInt8(sliderChangedTime / 60.0)
+        let sliderseconds = UInt8(sliderChangedTime)
+*/
+        
+        strMinutes = String(format: "%02d", UInt8(sliderChangedTime / 60.0))
+        strSeconds = String(format: "%02d", UInt8(sliderChangedTime % 60.0))
+        strFraction = String(format: "%02.0F", Float(sliderChangedTime % 1.0) * 100.0)
+
+        displayTimeLabel.text = "\(strMinutes):\(strSeconds):\(strFraction)"
+        
+        //print(String(stringInterpolationSegment: selectedValue))
+        print(sliderChangedTime)
     }
     
     
     func updateTime() {
         
         let currentTime = NSDate.timeIntervalSinceReferenceDate()
+        var countDown =  NSTimeInterval();
         
         //if suspend button has pressed
         if(suspendFlag == 1) {
-            startTime = startTime - elapsedTime
+            startTime = startTime - elapsedTime;
+            print("=== SUSPENDED ===");
         }
-    
-        elapsedTime = currentTime - startTime
-        var countDown: NSTimeInterval = 1500.0 - elapsedTime
-        print(countDown)
+
+        if(sliderChangedFlag == 1) {
+            startTime = currentTime - (1500.0 - sliderChangedTime);
+            print("=== SLIDER CHANGED ===");
+        }
+        
+        elapsedTime = currentTime - startTime;
+        countDown = 1500.0 - elapsedTime;
+        
+        print("startTime", startTime)
+        print("elapsedTime", elapsedTime);
+        print("countDown", countDown);
         
         //=== slider (should be placed here)===
         slider.value = Float(countDown);
@@ -85,7 +114,12 @@ class SWViewController: UIViewController {
         
         displayTimeLabel.text = "\(strMinutes):\(strSeconds):\(strFraction)"
         
-        suspendFlag = 0
+        print(suspendFlag);
+        print(sliderChangedFlag);
+        suspendFlag = 0;
+        sliderChangedFlag = 0;
+
+        
     }
     
     
