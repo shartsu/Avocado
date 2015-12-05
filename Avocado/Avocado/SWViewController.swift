@@ -2,23 +2,18 @@ import UIKit
 
 class SWViewController: UIViewController {
     
+    var timer:NSTimer = NSTimer()
+    
     @IBOutlet var displayTimeLabel: UILabel!
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var slidervalue: UILabel!
     
+    //NSTimeInterval == Double
     var startTime = NSTimeInterval()
-    var elapsedTime = NSTimeInterval()
-    var suspendedTime = NSTimeInterval()
     var sliderChangedTime = NSTimeInterval()
-    
-    var strMinutes = String()
-    var strSeconds = String()
-    var strFraction = String()
     
     var suspendFlag = Int()
     var sliderChangedFlag = Int()
-    
-    var timer:NSTimer = NSTimer()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,21 +27,17 @@ class SWViewController: UIViewController {
             timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: aSelector, userInfo: nil, repeats: true)
             startTime = NSDate.timeIntervalSinceReferenceDate()
         }
-        //print(timer)
-        //print(startTime)
     }
     
     //suspend function
     @IBAction func suspend(sender: AnyObject) {
         timer.invalidate()
         suspendFlag = 1;
-        
-        displayTimeLabel.text = "\(strMinutes):\(strSeconds):\(strFraction)"
     }
     
     @IBAction func reset(sender: AnyObject) {
         timer.invalidate()
-        displayTimeLabel.text = "25:00:00"
+        showTimer ("25",strSeconds: "00",strFraction: "00");
     }
     
     @IBAction func sliderValueChanged(sender: UISlider) {
@@ -56,19 +47,12 @@ class SWViewController: UIViewController {
         sliderChangedFlag = 1;
         sliderChangedTime = Double(slider.value)
         
-        /*
-        let sliderminutes = UInt8(sliderChangedTime / 60.0)
-        let sliderseconds = UInt8(sliderChangedTime)
-*/
-        
-        strMinutes = String(format: "%02d", UInt8(sliderChangedTime / 60.0))
-        strSeconds = String(format: "%02d", UInt8(sliderChangedTime % 60.0))
-        strFraction = String(format: "%02.0F", Float(sliderChangedTime % 1.0) * 100.0)
-
-        displayTimeLabel.text = "\(strMinutes):\(strSeconds):\(strFraction)"
+        showTimer (String(format: "%02d", UInt8(sliderChangedTime / 60.0)),
+            strSeconds: String(format: "%02d", UInt8(sliderChangedTime % 60.0)),
+            strFraction: String(format: "%02.0F", Float(sliderChangedTime % 1.0) * 100.0))
         
         //print(String(stringInterpolationSegment: selectedValue))
-        print(sliderChangedTime)
+        //print(sliderChangedTime)
     }
     
     
@@ -76,30 +60,37 @@ class SWViewController: UIViewController {
         
         let currentTime = NSDate.timeIntervalSinceReferenceDate()
         var countDown =  NSTimeInterval();
+        var elapsedTime = NSTimeInterval()
         
-        //if suspend button has pressed
+        /* --- There are three cases considered below implementation --- */
+        //1, ONLY suspend button pressed
+        //2, suspend button pressed THEN slider changed
+        //3, ONLY slider changed
+        
         if(suspendFlag == 1) {
             startTime = startTime - elapsedTime;
             print("=== SUSPENDED ===");
         }
-
+        
         if(sliderChangedFlag == 1) {
             startTime = currentTime - (1500.0 - sliderChangedTime);
             print("=== SLIDER CHANGED ===");
         }
         
+        //Calcurate elapsedTime then subtract it from 1500 (for 25minutes countdown)
         elapsedTime = currentTime - startTime;
         countDown = 1500.0 - elapsedTime;
         
-        print("startTime", startTime)
-        print("elapsedTime", elapsedTime);
-        print("countDown", countDown);
+        //For debug (comment outed so far)
+        //print("startTime", startTime)
+        //print("elapsedTime", elapsedTime);
+        //print("countDown", countDown);
         
-        //=== slider (should be placed here)===
+        //Change slider text (but only test environment)
         slider.value = Float(countDown);
         slidervalue.text = String(Float(slider.value));
-        //==============
         
+        //Alter timer values
         let cdminutes = UInt8(countDown / 60.0)
         countDown -= (NSTimeInterval(cdminutes) * 60)
         
@@ -108,18 +99,22 @@ class SWViewController: UIViewController {
     
         let cdfraction = UInt8(countDown * 100)
         
-        strMinutes = String(format: "%02d", cdminutes)
-        strSeconds = String(format: "%02d", cdseconds)
-        strFraction = String(format: "%02d", cdfraction)
+        //Show timer values when slider changed
+        showTimer (String(format: "%02d", cdminutes),
+            strSeconds: String(format: "%02d", cdseconds),
+            strFraction: String(format: "%02d", cdfraction))
         
-        displayTimeLabel.text = "\(strMinutes):\(strSeconds):\(strFraction)"
+        //For debug (comment outed so far)
+        //print(suspendFlag);
+        //print(sliderChangedFlag);
         
-        print(suspendFlag);
-        print(sliderChangedFlag);
+        //Reset flags
         suspendFlag = 0;
         sliderChangedFlag = 0;
-
-        
+    }
+    
+    func showTimer (strMinutes : String = "25", strSeconds : String = "00", strFraction : String = "00" ) {
+        displayTimeLabel.text = "\(strMinutes):\(strSeconds):\(strFraction)"
     }
     
     
