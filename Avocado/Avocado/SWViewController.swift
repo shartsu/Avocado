@@ -39,6 +39,7 @@ class SWViewController: UIViewController {
     @IBAction func reset(sender: AnyObject) {
         timer.invalidate()
         displayTimeLabel.textColor = UIColor.whiteColor();
+        slider.value = 1500.0;
         showTimer ("25",strSeconds: "00",strFraction: "00");
     }
     
@@ -47,19 +48,22 @@ class SWViewController: UIViewController {
         //slidervalue.text = String(stringInterpolationSegment: selectedValue)
         displayTimeLabel.textColor = UIColor.whiteColor();
         
+        //Round function (show timer 00:15:00, 00:08:00 or something)
         slider.value = slider.value - (slider.value % 60.0)
+        
+        //Timer interrupted when slider is changing
+        timer.invalidate();
         
         //FLAG and show changed time value
         sliderChangedFlag = 1;
         sliderChangedTime = Double(slider.value)
 
         showTimer (String(format: "%02d", UInt8(sliderChangedTime / 60.0)),
-            strSeconds: String(format: "%02d", UInt8(sliderChangedTime % 60.0)),
-            strFraction: String(format: "%02.0F", Float(sliderChangedTime % 1.0) * 100.0))
+            strSeconds: "00",
+            strFraction: "00")
         
         //print(String(stringInterpolationSegment: selectedValue))
         //print(sliderChangedTime)
-        print(slider.value - (slider.value % 60.0))
     }
     
     
@@ -88,13 +92,25 @@ class SWViewController: UIViewController {
         elapsedTime = currentTime - startTime;
         countDown = 1500.0 - elapsedTime;
         
+        //if counter over 00:00:00, then COUNTUP start 
+        if(countDown < 0.0) {
+            displayTimeLabel.textColor = UIColor.redColor();
+            countDown = elapsedTime - 1500.0;
+            slider.value = 0.0;
+            //timer.invalidate();
+            //showTimer ("00",strSeconds: "00",strFraction: "00");
+        } else {
+        //Otherwise (Normal function)
+            displayTimeLabel.textColor = UIColor.whiteColor();
+            slider.value = Float(countDown);
+        }
+        
         //For debug (comment outed so far)
         //print("startTime", startTime)
-        //print("elapsedTime", elapsedTime);
+        print("elapsedTime", elapsedTime);
         //print("countDown", countDown);
         
-        //Change slider
-        slider.value = Float(countDown);
+        //For debug slider value
         //slidervalue.text = String(Float(slider.value));
         
         //Alter timer values
@@ -111,12 +127,14 @@ class SWViewController: UIViewController {
             strSeconds: String(format: "%02d", cdseconds),
             strFraction: String(format: "%02d", cdfraction))
         
-        //Finally,
+        //Finally, when wanna STOP timer
+        /*
         if(countDown < 0.0) {
             displayTimeLabel.textColor = UIColor.redColor();
             timer.invalidate();
             showTimer ("00",strSeconds: "00",strFraction: "00");
         }
+        */
         
         //For debug (comment outed so far)
         //print(suspendFlag);
