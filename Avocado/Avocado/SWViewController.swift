@@ -6,6 +6,7 @@ class SWViewController: UIViewController {
     
     @IBOutlet var displayTimeLabel: UILabel!
     @IBOutlet weak var slider: UISlider!
+    //would be deleted (Just show double value of slider)
     @IBOutlet weak var slidervalue: UILabel!
     
     //NSTimeInterval == Double
@@ -37,22 +38,28 @@ class SWViewController: UIViewController {
     
     @IBAction func reset(sender: AnyObject) {
         timer.invalidate()
+        displayTimeLabel.textColor = UIColor.whiteColor();
         showTimer ("25",strSeconds: "00",strFraction: "00");
     }
     
     @IBAction func sliderValueChanged(sender: UISlider) {
-        let selectedValue = Float(slider.value)
-        slidervalue.text = String(stringInterpolationSegment: selectedValue)
-
+        //let selectedValue = Float(slider.value)
+        //slidervalue.text = String(stringInterpolationSegment: selectedValue)
+        displayTimeLabel.textColor = UIColor.whiteColor();
+        
+        slider.value = slider.value - (slider.value % 60.0)
+        
+        //FLAG and show changed time value
         sliderChangedFlag = 1;
         sliderChangedTime = Double(slider.value)
-        
+
         showTimer (String(format: "%02d", UInt8(sliderChangedTime / 60.0)),
             strSeconds: String(format: "%02d", UInt8(sliderChangedTime % 60.0)),
             strFraction: String(format: "%02.0F", Float(sliderChangedTime % 1.0) * 100.0))
         
         //print(String(stringInterpolationSegment: selectedValue))
         //print(sliderChangedTime)
+        print(slider.value - (slider.value % 60.0))
     }
     
     
@@ -86,9 +93,9 @@ class SWViewController: UIViewController {
         //print("elapsedTime", elapsedTime);
         //print("countDown", countDown);
         
-        //Change slider text (but only test environment)
+        //Change slider
         slider.value = Float(countDown);
-        slidervalue.text = String(Float(slider.value));
+        //slidervalue.text = String(Float(slider.value));
         
         //Alter timer values
         let cdminutes = UInt8(countDown / 60.0)
@@ -103,6 +110,13 @@ class SWViewController: UIViewController {
         showTimer (String(format: "%02d", cdminutes),
             strSeconds: String(format: "%02d", cdseconds),
             strFraction: String(format: "%02d", cdfraction))
+        
+        //Finally,
+        if(countDown < 0.0) {
+            displayTimeLabel.textColor = UIColor.redColor();
+            timer.invalidate();
+            showTimer ("00",strSeconds: "00",strFraction: "00");
+        }
         
         //For debug (comment outed so far)
         //print(suspendFlag);
