@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		52967BD91BFE78250037985B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52967BD81BFE78250037985B /* Main.storyboard */; };
 		52B0F5D71BFA74CB005B90B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B0F5D61BFA74CB005B90B8 /* AppDelegate.swift */; };
-		52B0F5DE1BFA74CB005B90B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52B0F5DD1BFA74CB005B90B8 /* Assets.xcassets */; };
 		52B0F5EC1BFA74CB005B90B8 /* AvocadoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B0F5EB1BFA74CB005B90B8 /* AvocadoTests.swift */; };
 		52B0F5F71BFA74CB005B90B8 /* AvocadoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B0F5F61BFA74CB005B90B8 /* AvocadoUITests.swift */; };
 		52B0F6051BFA765F005B90B8 /* SWViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B0F6041BFA765F005B90B8 /* SWViewController.swift */; };
+		52FFD3671C163FA70097DC06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52FFD3661C163FA70097DC06 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +36,6 @@
 		52967BD81BFE78250037985B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		52B0F5D31BFA74CB005B90B8 /* Avocado.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Avocado.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52B0F5D61BFA74CB005B90B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		52B0F5DD1BFA74CB005B90B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52B0F5E21BFA74CB005B90B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52B0F5E71BFA74CB005B90B8 /* AvocadoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AvocadoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		52B0F5EB1BFA74CB005B90B8 /* AvocadoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvocadoTests.swift; sourceTree = "<group>"; };
@@ -45,6 +44,7 @@
 		52B0F5F61BFA74CB005B90B8 /* AvocadoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvocadoUITests.swift; sourceTree = "<group>"; };
 		52B0F5F81BFA74CB005B90B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52B0F6041BFA765F005B90B8 /* SWViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SWViewController.swift; sourceTree = "<group>"; };
+		52FFD3661C163FA70097DC06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,8 +95,8 @@
 		52B0F5D51BFA74CB005B90B8 /* Avocado */ = {
 			isa = PBXGroup;
 			children = (
+				52FFD3661C163FA70097DC06 /* Assets.xcassets */,
 				52B0F5D61BFA74CB005B90B8 /* AppDelegate.swift */,
-				52B0F5DD1BFA74CB005B90B8 /* Assets.xcassets */,
 				52967BD81BFE78250037985B /* Main.storyboard */,
 				52B0F5E21BFA74CB005B90B8 /* Info.plist */,
 				52B0F6041BFA765F005B90B8 /* SWViewController.swift */,
@@ -229,8 +229,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52FFD3671C163FA70097DC06 /* Assets.xcassets in Resources */,
 				52967BD91BFE78250037985B /* Main.storyboard in Resources */,
-				52B0F5DE1BFA74CB005B90B8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,10 +377,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = Avocado/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shartsu.Avocado;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -388,10 +391,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = Avocado/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shartsu.Avocado;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
