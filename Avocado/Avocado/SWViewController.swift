@@ -2,12 +2,16 @@ import UIKit
 
 class SWViewController: UIViewController {
 
+    
     var timer:NSTimer = NSTimer()
 
     @IBOutlet var displayTimeLabel: UILabel!
     @IBOutlet weak var slider: UISlider!
     //would be deleted (Just show double value of slider)
     @IBOutlet weak var slidervalue: UILabel!
+    @IBOutlet weak var image: UIImageView!
+    
+    @IBOutlet weak var avokado: UIImageView!
 
     //NSTimeInterval == Double
     var startTime = NSTimeInterval()
@@ -18,8 +22,12 @@ class SWViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        //image.image = UIImage(named:"avokado")
+        slider.minimumTrackTintColor = UIColor.yellowColor()
+        slider.setThumbImage(UIImage(named: "triangle")!, forState: .Normal)
 
         // Do any additional setup after loading the view.
+        //self.view.addSubview(avokado)
     }
 
     @IBAction func start(sender: AnyObject) {
@@ -148,6 +156,76 @@ class SWViewController: UIViewController {
     func showTimer (strMinutes : String = "25", strSeconds : String = "00", strFraction : String = "00" ) {
         displayTimeLabel.text = "\(strMinutes):\(strSeconds):\(strFraction)"
     }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        print("touchesBegan")
+        
+        // Labelアニメーション.
+        UIView.animateWithDuration(0.06,
+            // アニメーション中の処理.
+            animations: { () -> Void in
+                // 縮小用アフィン行列を作成する.
+                self.avokado.transform = CGAffineTransformMakeScale(0.9, 0.9)
+                
+            })
+            { (Bool) -> Void in
+        }
+    }
+    
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        print("touchesMoved")
+        
+        // タッチイベントを取得.
+        let touchEvent = touches.first!
+        
+        // ドラッグ前の座標, Swift 1.2 から
+        let preDx = touchEvent.previousLocationInView(self.view).x
+        let preDy = touchEvent.previousLocationInView(self.view).y
+        
+        // ドラッグ後の座標
+        let newDx = touchEvent.locationInView(self.view).x
+        let newDy = touchEvent.locationInView(self.view).y
+        
+        // ドラッグしたx座標の移動距離
+        let dx = newDx - preDx
+        print("x:\(dx)")
+        
+        // ドラッグしたy座標の移動距離
+        let dy = newDy - preDy
+        print("y:\(dy)")
+        
+        // 画像のフレーム
+        var viewFrame: CGRect = avokado.frame
+        
+        // 移動分を反映させる
+        viewFrame.origin.x += dx
+        viewFrame.origin.y += dy
+        
+        avokado.frame = viewFrame
+        
+        //self.view.addSubview(avokado)
+    
+    }
+    
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+
+        print("touchesEnded")
+        
+        // Labelアニメーション.
+        UIView.animateWithDuration(0.1,
+            
+            // アニメーション中の処理.
+            animations: { () -> Void in
+                // 拡大用アフィン行列を作成する.
+                self.avokado.transform = CGAffineTransformMakeScale(0.4, 0.4)
+                // 縮小用アフィン行列を作成する.
+                self.avokado.transform = CGAffineTransformMakeScale(1.0, 1.0)
+            })
+            { (Bool) -> Void in
+                
+        }
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

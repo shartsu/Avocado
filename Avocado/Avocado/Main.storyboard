@@ -62,12 +62,17 @@
                                     <action selector="reset:" destination="abu-O5-fZd" eventType="touchUpInside" id="G7e-gq-sO9"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avokado.png" id="cg9-OG-y9f">
+                                <rect key="frame" x="40" y="103" width="84" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="avokado" destination="cg9-OG-y9f" id="OdH-aF-U0h"/>
                         <outlet property="displayTimeLabel" destination="Uaq-2H-eyI" id="ppA-Bh-HDY"/>
                         <outlet property="slider" destination="Msd-o5-v9s" id="UUS-Gf-2vD"/>
                         <outlet property="slidervalue" destination="aNH-8g-npW" id="GLX-J2-AZw"/>
@@ -75,7 +80,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4s6-wn-RGw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="368" y="414.63999999999999"/>
+            <point key="canvasLocation" x="368" y="414"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="avokado.png" width="640" height="1136"/>
+    </resources>
 </document>

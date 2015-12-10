@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5274D9DF1C1786E9002D68FF /* avokado.png in Resources */ = {isa = PBXBuildFile; fileRef = 5274D9DE1C1786E9002D68FF /* avokado.png */; };
 		52967BD91BFE78250037985B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52967BD81BFE78250037985B /* Main.storyboard */; };
 		52B0F5D71BFA74CB005B90B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B0F5D61BFA74CB005B90B8 /* AppDelegate.swift */; };
 		52B0F5EC1BFA74CB005B90B8 /* AvocadoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B0F5EB1BFA74CB005B90B8 /* AvocadoTests.swift */; };
 		52B0F5F71BFA74CB005B90B8 /* AvocadoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B0F5F61BFA74CB005B90B8 /* AvocadoUITests.swift */; };
 		52B0F6051BFA765F005B90B8 /* SWViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B0F6041BFA765F005B90B8 /* SWViewController.swift */; };
+		52BCD5C91C18CD6600859EDE /* triangle.png in Resources */ = {isa = PBXBuildFile; fileRef = 52BCD5C71C18CD6600859EDE /* triangle.png */; };
+		52BCD5CA1C18CD6600859EDE /* triangle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52BCD5C81C18CD6600859EDE /* triangle@2x.png */; };
 		52FFD3671C163FA70097DC06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52FFD3661C163FA70097DC06 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5274D9DE1C1786E9002D68FF /* avokado.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avokado.png; sourceTree = "<group>"; };
 		52967BD81BFE78250037985B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		52B0F5D31BFA74CB005B90B8 /* Avocado.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Avocado.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52B0F5D61BFA74CB005B90B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -44,6 +48,8 @@
 		52B0F5F61BFA74CB005B90B8 /* AvocadoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvocadoUITests.swift; sourceTree = "<group>"; };
 		52B0F5F81BFA74CB005B90B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52B0F6041BFA765F005B90B8 /* SWViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SWViewController.swift; sourceTree = "<group>"; };
+		52BCD5C71C18CD6600859EDE /* triangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = triangle.png; sourceTree = "<group>"; };
+		52BCD5C81C18CD6600859EDE /* triangle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "triangle@2x.png"; sourceTree = "<group>"; };
 		52FFD3661C163FA70097DC06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -95,6 +101,9 @@
 		52B0F5D51BFA74CB005B90B8 /* Avocado */ = {
 			isa = PBXGroup;
 			children = (
+				52BCD5C71C18CD6600859EDE /* triangle.png */,
+				52BCD5C81C18CD6600859EDE /* triangle@2x.png */,
+				5274D9DE1C1786E9002D68FF /* avokado.png */,
 				52FFD3661C163FA70097DC06 /* Assets.xcassets */,
 				52B0F5D61BFA74CB005B90B8 /* AppDelegate.swift */,
 				52967BD81BFE78250037985B /* Main.storyboard */,
@@ -229,7 +238,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52BCD5CA1C18CD6600859EDE /* triangle@2x.png in Resources */,
 				52FFD3671C163FA70097DC06 /* Assets.xcassets in Resources */,
+				52BCD5C91C18CD6600859EDE /* triangle.png in Resources */,
+				5274D9DF1C1786E9002D68FF /* avokado.png in Resources */,
 				52967BD91BFE78250037985B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -378,11 +390,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Avocado/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shartsu.Avocado;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Avocado/Avocado-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -392,11 +407,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Avocado/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.shartsu.Avocado;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Avocado/Avocado-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
