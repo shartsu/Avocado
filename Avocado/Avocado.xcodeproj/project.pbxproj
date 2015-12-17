@@ -13,8 +13,6 @@
 		52B0F5EC1BFA74CB005B90B8 /* AvocadoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B0F5EB1BFA74CB005B90B8 /* AvocadoTests.swift */; };
 		52B0F5F71BFA74CB005B90B8 /* AvocadoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B0F5F61BFA74CB005B90B8 /* AvocadoUITests.swift */; };
 		52B0F6051BFA765F005B90B8 /* SWViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B0F6041BFA765F005B90B8 /* SWViewController.swift */; };
-		52BCD5C91C18CD6600859EDE /* triangle.png in Resources */ = {isa = PBXBuildFile; fileRef = 52BCD5C71C18CD6600859EDE /* triangle.png */; };
-		52BCD5CA1C18CD6600859EDE /* triangle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 52BCD5C81C18CD6600859EDE /* triangle@2x.png */; };
 		52FFD3671C163FA70097DC06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52FFD3661C163FA70097DC06 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -48,8 +46,6 @@
 		52B0F5F61BFA74CB005B90B8 /* AvocadoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvocadoUITests.swift; sourceTree = "<group>"; };
 		52B0F5F81BFA74CB005B90B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52B0F6041BFA765F005B90B8 /* SWViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SWViewController.swift; sourceTree = "<group>"; };
-		52BCD5C71C18CD6600859EDE /* triangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = triangle.png; sourceTree = "<group>"; };
-		52BCD5C81C18CD6600859EDE /* triangle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "triangle@2x.png"; sourceTree = "<group>"; };
 		52FFD3661C163FA70097DC06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,8 +97,6 @@
 		52B0F5D51BFA74CB005B90B8 /* Avocado */ = {
 			isa = PBXGroup;
 			children = (
-				52BCD5C71C18CD6600859EDE /* triangle.png */,
-				52BCD5C81C18CD6600859EDE /* triangle@2x.png */,
 				5274D9DE1C1786E9002D68FF /* avokado.png */,
 				52FFD3661C163FA70097DC06 /* Assets.xcassets */,
 				52B0F5D61BFA74CB005B90B8 /* AppDelegate.swift */,
@@ -238,9 +232,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52BCD5CA1C18CD6600859EDE /* triangle@2x.png in Resources */,
 				52FFD3671C163FA70097DC06 /* Assets.xcassets in Resources */,
-				52BCD5C91C18CD6600859EDE /* triangle.png in Resources */,
 				5274D9DF1C1786E9002D68FF /* avokado.png in Resources */,
 				52967BD91BFE78250037985B /* Main.storyboard in Resources */,
 			);

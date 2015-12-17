@@ -22,20 +22,6 @@
                                     <action selector="start:" destination="abu-O5-fZd" eventType="touchUpInside" id="7Ii-O6-fJh"/>
                                 </connections>
                             </button>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1500" minValue="0.0" maxValue="1500" id="Msd-o5-v9s">
-                                <rect key="frame" x="74" y="49" width="421" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="sliderValueChanged:" destination="abu-O5-fZd" eventType="valueChanged" id="TjO-Iv-Ibr"/>
-                                </connections>
-                            </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1500.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aNH-8g-npW">
-                                <rect key="frame" x="459" y="5" width="53" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9fL-dy-McB">
                                 <rect key="frame" x="246" y="229" width="77" height="69.5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -63,7 +49,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avokado.png" id="cg9-OG-y9f">
-                                <rect key="frame" x="40" y="103" width="84" height="70"/>
+                                <rect key="frame" x="-420" y="0.0" width="1468" height="126"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -74,13 +60,11 @@
                     <connections>
                         <outlet property="avokado" destination="cg9-OG-y9f" id="OdH-aF-U0h"/>
                         <outlet property="displayTimeLabel" destination="Uaq-2H-eyI" id="ppA-Bh-HDY"/>
-                        <outlet property="slider" destination="Msd-o5-v9s" id="UUS-Gf-2vD"/>
-                        <outlet property="slidervalue" destination="aNH-8g-npW" id="GLX-J2-AZw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4s6-wn-RGw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="368" y="414"/>
+            <point key="canvasLocation" x="180" y="386"/>
         </scene>
     </scenes>
     <resources>

@@ -6,28 +6,29 @@ class SWViewController: UIViewController {
     var timer:NSTimer = NSTimer()
 
     @IBOutlet var displayTimeLabel: UILabel!
-    @IBOutlet weak var slider: UISlider!
-    //would be deleted (Just show double value of slider)
-    @IBOutlet weak var slidervalue: UILabel!
-    @IBOutlet weak var image: UIImageView!
-    
     @IBOutlet weak var avokado: UIImageView!
 
     //NSTimeInterval == Double
     var startTime = NSTimeInterval()
-    var sliderChangedTime = NSTimeInterval()
-
     var suspendFlag = Int()
-    var sliderChangedFlag = Int()
+    var elapsedTime = NSTimeInterval()
+    
+    //Frame
+    var viewFrame = CGRect ()
+    var frameChangedTime = NSTimeInterval()
+    var frameChangedFlag = Int()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //image.image = UIImage(named:"avokado")
-        slider.minimumTrackTintColor = UIColor.yellowColor()
-        slider.setThumbImage(UIImage(named: "triangle")!, forState: .Normal)
+
+        displayTimeLabel.textColor = UIColor.whiteColor();
+        
+        //Move frame start point
+        avokado.frame.origin.x = screenSize().width - CGRectGetWidth(avokado.frame)
+
 
         // Do any additional setup after loading the view.
-        //self.view.addSubview(avokado)
+        self.view.addSubview(avokado)
     }
 
     @IBAction func start(sender: AnyObject) {
@@ -40,87 +41,61 @@ class SWViewController: UIViewController {
 
     //suspend function
     @IBAction func suspend(sender: AnyObject) {
-        timer.invalidate()
+        timer.invalidate();
         suspendFlag = 1;
     }
 
     @IBAction func reset(sender: AnyObject) {
-        timer.invalidate()
+        timer.invalidate();
         displayTimeLabel.textColor = UIColor.whiteColor();
-        slider.value = 1500.0;
+        
+        //Replace to first position
+        avokado.frame.origin.x = screenSize().width - CGRectGetWidth(avokado.frame);
+        
+        //Reset Timer
+        elapsedTime = 0;
+        
         showTimer ("25",strSeconds: "00",strFraction: "00");
     }
 
-    @IBAction func sliderValueChanged(sender: UISlider) {
-        //let selectedValue = Float(slider.value)
-        //slidervalue.text = String(stringInterpolationSegment: selectedValue)
-        displayTimeLabel.textColor = UIColor.whiteColor();
-
-        //Round function (show timer 00:15:00, 00:08:00 or something)
-        slider.value = slider.value - (slider.value % 60.0)
-
-        //Timer interrupted when slider is changing
-        timer.invalidate();
-
-        //FLAG and show changed time value
-        sliderChangedFlag = 1;
-        sliderChangedTime = Double(slider.value)
-
-        showTimer (String(format: "%02d", UInt8(sliderChangedTime / 60.0)),
-            strSeconds: "00",
-            strFraction: "00")
-
-        //print(String(stringInterpolationSegment: selectedValue))
-        //print(sliderChangedTime)
-    }
-
-
     func updateTime() {
 
-        let currentTime = NSDate.timeIntervalSinceReferenceDate()
+        let currentTime = NSDate.timeIntervalSinceReferenceDate();
         var countDown =  NSTimeInterval();
-        var elapsedTime = NSTimeInterval()
 
         /* --- There are three cases considered below implementation --- */
         //1, ONLY suspend button pressed
-        //2, suspend button pressed THEN slider changed
-        //3, ONLY slider changed
+        //2, suspend button pressed THEN frame changed
+        //3, ONLY frame changed
 
         if(suspendFlag == 1) {
             startTime = startTime - elapsedTime;
-            print("=== SUSPENDED ===");
         }
 
-        if(sliderChangedFlag == 1) {
-            startTime = currentTime - (1500.0 - sliderChangedTime);
-            print("=== SLIDER CHANGED ===");
+        if(frameChangedFlag == 1) {
+            startTime = currentTime - (1500.0 - frameChangedTime);
         }
 
-        //Calcurate elapsedTime then subtract it from 1500 (for 25minutes countdown)
+        //Calcurate elapsedTime then subtract it from 1500 (for 25 minutes countdown)
         elapsedTime = currentTime - startTime;
         countDown = 1500.0 - elapsedTime;
 
-        //if counter over 00:00:00, then COUNTUP start
         if(countDown < 0.0) {
+        //if counter over 00:00:00, then COUNTUP start
             displayTimeLabel.textColor = UIColor.redColor();
             countDown = elapsedTime - 1500.0;
-            slider.value = 0.0;
-            //timer.invalidate();
-            //showTimer ("00",strSeconds: "00",strFraction: "00");
+            avokado.frame.origin.x = 0;
         } else {
         //Otherwise (Normal function)
             displayTimeLabel.textColor = UIColor.whiteColor();
-            slider.value = Float(countDown);
+            avokado.frame.origin.x = CGFloat(countDown * (Double(screenSize().width - CGRectGetWidth(avokado.frame)) / 1500.0));
         }
 
         //For debug (comment outed so far)
         //print("startTime", startTime)
-        print("elapsedTime", elapsedTime);
+        //print("elapsedTime", elapsedTime);
         //print("countDown", countDown);
-
-        //For debug slider value
-        //slidervalue.text = String(Float(slider.value));
-
+        
         //Alter timer values
         let cdminutes = UInt8(countDown / 60.0)
         countDown -= (NSTimeInterval(cdminutes) * 60)
@@ -130,27 +105,24 @@ class SWViewController: UIViewController {
 
         let cdfraction = UInt8(countDown * 100)
 
-        //Show timer values when slider changed
+        //Show timer values when frame changed
         showTimer (String(format: "%02d", cdminutes),
             strSeconds: String(format: "%02d", cdseconds),
             strFraction: String(format: "%02d", cdfraction))
 
-        //Finally, when wanna STOP timer
-        /*
-        if(countDown < 0.0) {
-            displayTimeLabel.textColor = UIColor.redColor();
-            timer.invalidate();
-            showTimer ("00",strSeconds: "00",strFraction: "00");
-        }
-        */
-
-        //For debug (comment outed so far)
-        //print(suspendFlag);
-        //print(sliderChangedFlag);
-
         //Reset flags
         suspendFlag = 0;
-        sliderChangedFlag = 0;
+        frameChangedFlag = 0;
+        print("elapsedTime:finally", elapsedTime);
+    }
+    
+    func screenSize() -> CGSize {
+        let screenSize = UIScreen.mainScreen().bounds.size;
+        if NSFoundationVersionNumber <= NSFoundationVersionNumber_iOS_7_1
+            && UIInterfaceOrientationIsLandscape(UIApplication.sharedApplication().statusBarOrientation) {
+                return CGSizeMake(screenSize.height, screenSize.width)
+        }
+        return screenSize
     }
 
     func showTimer (strMinutes : String = "25", strSeconds : String = "00", strFraction : String = "00" ) {
@@ -158,74 +130,76 @@ class SWViewController: UIViewController {
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        print("touchesBegan")
-        
-        // Labelアニメーション.
+        /*
         UIView.animateWithDuration(0.06,
-            // アニメーション中の処理.
             animations: { () -> Void in
-                // 縮小用アフィン行列を作成する.
                 self.avokado.transform = CGAffineTransformMakeScale(0.9, 0.9)
-                
             })
             { (Bool) -> Void in
         }
+*/
     }
     
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        print("touchesMoved")
         
-        // タッチイベントを取得.
+        // Get touchevent
         let touchEvent = touches.first!
         
-        // ドラッグ前の座標, Swift 1.2 から
+        // Get valuables how long distance moved
         let preDx = touchEvent.previousLocationInView(self.view).x
-        let preDy = touchEvent.previousLocationInView(self.view).y
-        
-        // ドラッグ後の座標
         let newDx = touchEvent.locationInView(self.view).x
-        let newDy = touchEvent.locationInView(self.view).y
-        
-        // ドラッグしたx座標の移動距離
         let dx = newDx - preDx
-        print("x:\(dx)")
-        
-        // ドラッグしたy座標の移動距離
-        let dy = newDy - preDy
-        print("y:\(dy)")
-        
-        // 画像のフレーム
-        var viewFrame: CGRect = avokado.frame
-        
-        // 移動分を反映させる
-        viewFrame.origin.x += dx
-        viewFrame.origin.y += dy
-        
-        avokado.frame = viewFrame
-        
-        //self.view.addSubview(avokado)
     
+        //Apply it to the frame
+        avokado.frame.origin.x += dx
+        
+        // Stop move over their frame
+        if(avokado.frame.origin.x < (screenSize().width - CGRectGetWidth(avokado.frame))) {
+            avokado.frame.origin.x = screenSize().width - CGRectGetWidth(avokado.frame)
+        } else if(avokado.frame.origin.x > 0) {
+            avokado.frame.origin.x = 0
+        }
+  
+        //FLAG and show changed time value
+        timer.invalidate();
+        frameChangedFlag = 1;
+        frameChangedTime = Double(avokado.frame.origin.x) * (1500.0 / Double(screenSize().width - CGRectGetWidth(avokado.frame)))
+        
+        //Replace timer to nearby exact minutes
+        if ((frameChangedTime % 60.0) > 30.0) {
+            frameChangedTime =  frameChangedTime + 60.0 - (frameChangedTime % 60.0)
+        } else {
+            frameChangedTime =  frameChangedTime - (frameChangedTime % 60.0)
+        }
+        
+        showTimer (String(format: "%02d", UInt8(frameChangedTime / 60.0)),
+            strSeconds: "00",
+            strFraction: "00")
+        
+        //Replace also value
+        elapsedTime = 1500.0 - frameChangedTime;
+        
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-
-        print("touchesEnded")
         
-        // Labelアニメーション.
+
+        //Replace frame to nearby exact positions
+        avokado.frame.origin.x = CGFloat((frameChangedTime / 60.0) * (-36.0));
+        
+        /*
         UIView.animateWithDuration(0.1,
-            
-            // アニメーション中の処理.
             animations: { () -> Void in
-                // 拡大用アフィン行列を作成する.
                 self.avokado.transform = CGAffineTransformMakeScale(0.4, 0.4)
-                // 縮小用アフィン行列を作成する.
                 self.avokado.transform = CGAffineTransformMakeScale(1.0, 1.0)
             })
             { (Bool) -> Void in
                 
         }
+*/
+
     }
-    
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
