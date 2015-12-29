@@ -13,25 +13,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="aDP-Ij-k0t">
-                                <rect key="frame" x="35" y="221" width="105" height="46"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Start"/>
-                                <connections>
-                                    <action selector="start:" destination="abu-O5-fZd" eventType="touchUpInside" id="7Ii-O6-fJh"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9fL-dy-McB">
-                                <rect key="frame" x="246" y="229" width="77" height="69.5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <state key="normal" title="||"/>
-                                <connections>
-                                    <action selector="suspend:" destination="abu-O5-fZd" eventType="touchUpInside" id="4Ol-qR-EQU"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25:00:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Uaq-2H-eyI">
                                 <rect key="frame" x="150" y="119" width="268" height="82"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -52,6 +33,16 @@
                                 <rect key="frame" x="-420" y="0.0" width="1468" height="126"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Gg2-lA-Fjg">
+                                <rect key="frame" x="246" y="230" width="77" height="69.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <state key="normal" title="||"/>
+                                <connections>
+                                    <action selector="control:" destination="abu-O5-fZd" eventType="touchUpInside" id="fZM-Tz-Zfg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -60,6 +51,7 @@
                     <connections>
                         <outlet property="avokado" destination="cg9-OG-y9f" id="OdH-aF-U0h"/>
                         <outlet property="displayTimeLabel" destination="Uaq-2H-eyI" id="ppA-Bh-HDY"/>
+                        <outlet property="suspendButton" destination="Gg2-lA-Fjg" id="k54-MJ-prU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4s6-wn-RGw" userLabel="First Responder" sceneMemberID="firstResponder"/>
