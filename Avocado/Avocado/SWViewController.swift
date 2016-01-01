@@ -15,10 +15,10 @@ class SWViewController: UIViewController {
     //Frame
     var viewFrame = CGRect ()
     var frameChangedTime = NSTimeInterval()
-    var frameChangedFlag = Int()
+    //var frameChangedFlag = Int()
     
     //Class StateMachine
-    let stateTimer = StateTimer();
+    let stateMachine = StateMachine();
     
     //Class ShowTimer
     let showTimer = ShowTimer();
@@ -32,7 +32,7 @@ class SWViewController: UIViewController {
         avokado.frame.origin.x = screenSize().width - CGRectGetWidth(avokado.frame);
         
         //Firstly set statement to 2
-        let buttonText = stateTimer.reset();
+        let buttonText = stateMachine.reset();
         suspendButton.setTitle(buttonText, forState: UIControlState.Normal);
 
         // Do any additional setup after loading the view.
@@ -41,30 +41,30 @@ class SWViewController: UIViewController {
 
     //suspend function
     @IBAction func control(sender: AnyObject) {
-        print("stateTimer.statecheck()", stateTimer.statecheck());
+        print("stateMachine.current()", stateMachine.current());
         var buttonText:String = String();
         
-        if (stateTimer.statecheck() == 1) {
+        if (stateMachine.current() == 1) {
             timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: "updateTime", userInfo: nil, repeats: true);
             startTime = NSDate.timeIntervalSinceReferenceDate();
             
             //Set statement to 2
-            buttonText = stateTimer.start();
+            buttonText = stateMachine.start();
             suspendButton.setTitle(buttonText, forState: UIControlState.Normal);
             
-        } else if(stateTimer.statecheck() == 2){
+        } else if(stateMachine.current() == 2){
             timer.invalidate();
             
             //Set statement to 3
-            buttonText = stateTimer.suspend();
+            buttonText = stateMachine.suspend();
             suspendButton.setTitle(buttonText, forState: UIControlState.Normal);
             
-        } else if (stateTimer.statecheck() == 3) {
+        } else if (stateMachine.current() == 3 || stateMachine.current() == 4) {
             timer = NSTimer.scheduledTimerWithTimeInterval(0.01, target: self, selector: "updateTime", userInfo: nil, repeats: true);
             startTime = NSDate.timeIntervalSinceReferenceDate() - elapsedTime;
             
             //Set statement to 2
-            buttonText = stateTimer.start();
+            buttonText = stateMachine.start();
             suspendButton.setTitle(buttonText, forState: UIControlState.Normal);
         }
     }
@@ -73,9 +73,12 @@ class SWViewController: UIViewController {
 
         timer.invalidate();
         
-        let buttonText = stateTimer.reset();
+        let buttonText = stateMachine.reset();
         suspendButton.setTitle(buttonText, forState: UIControlState.Normal);
         displayTimeLabel.textColor = UIColor.whiteColor();
+        
+        //Reset flameChanged values
+        frameChangedTime = 1500.0;
         
         //Replace to first position
         avokado.frame.origin.x = screenSize().width - CGRectGetWidth(avokado.frame);
@@ -91,16 +94,13 @@ class SWViewController: UIViewController {
         let currentTime = NSDate.timeIntervalSinceReferenceDate();
         var countDown =  NSTimeInterval();
 
-        /* --- There are three cases considered below implementation --- */
-        //1, ONLY suspend button pressed
-        //2, suspend button pressed THEN frame changed
-        //3, ONLY frame changed
+        //print("stateMachine.statecheck()", stateMachine.current());
 
-        print("stateTimer.statecheck()", stateTimer.statecheck());
-
+        /*
         if(frameChangedFlag == 1) {
             startTime = currentTime - (1500.0 - frameChangedTime);
         }
+        */
         
         //Calcurate elapsedTime then subtract it from 1500 (for 25 minutes countdown)
         elapsedTime = currentTime - startTime;
@@ -115,16 +115,16 @@ class SWViewController: UIViewController {
         //Otherwise (Normal function)
             displayTimeLabel.textColor = UIColor.whiteColor();
             avokado.frame.origin.x = CGFloat(countDown * (Double(screenSize().width - CGRectGetWidth(avokado.frame)) / 1500.0));
+            
         }
 
         //Alter timer values
         displayTimeLabel.text = showTimer.setTimer(countDown);
 
         //Reset flags
-        frameChangedFlag = 0;
+        //frameChangedFlag = 0;
         print("elapsedTime:finally", elapsedTime);
     }
-    
     
     func screenSize() -> CGSize {
         let screenSize = UIScreen.mainScreen().bounds.size;
@@ -136,7 +136,6 @@ class SWViewController: UIViewController {
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        
         /*
         UIView.animateWithDuration(0.06,
             animations: { () -> Void in
@@ -150,6 +149,15 @@ class SWViewController: UIViewController {
     
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
+        timer.invalidate();
+        
+        //Set statement to 3
+        let buttonText = stateMachine.frameChanged();
+        suspendButton.setTitle(buttonText, forState: UIControlState.Normal);
+        
+        //Set White Color
+        displayTimeLabel.textColor = UIColor.whiteColor();
+        
         // Get touchevent
         let touchEvent = touches.first!
         
@@ -157,37 +165,31 @@ class SWViewController: UIViewController {
         let preDx = touchEvent.previousLocationInView(self.view).x;
         let preDy = touchEvent.previousLocationInView(self.view).y;
         let newDx = touchEvent.locationInView(self.view).x;
-        let dx = newDx - preDx;
         
         print("preDy", preDy);
     
-        //Apply it to the frame
-        if(preDy < 130) {avokado.frame.origin.x += dx;}
-        
-        //Set statement to 3
-        let buttonText = stateTimer.suspend();
-        suspendButton.setTitle(buttonText, forState: UIControlState.Normal);
-        
-        //Set White Color
-        displayTimeLabel.textColor = UIColor.whiteColor();
+        // Apply it to the frame
+        if(preDy < 160) {
+            let dx = newDx - preDx;
+            avokado.frame.origin.x += dx;
+        }
         
         // Stop move over their frame
         if(avokado.frame.origin.x < (screenSize().width - CGRectGetWidth(avokado.frame))) {
-            avokado.frame.origin.x = screenSize().width - CGRectGetWidth(avokado.frame)
+            avokado.frame.origin.x = screenSize().width - CGRectGetWidth(avokado.frame);
         } else if(avokado.frame.origin.x > 0) {
-            avokado.frame.origin.x = 0
+            avokado.frame.origin.x = 0;
         }
   
-        //FLAG and show changed time value
-        timer.invalidate();
-        frameChangedFlag = 1;
-        frameChangedTime = Double(avokado.frame.origin.x) * (1500.0 / Double(screenSize().width - CGRectGetWidth(avokado.frame)))
+        //show changed time value
+        //frameChangedFlag = 1;
+        frameChangedTime = Double(avokado.frame.origin.x) * (1500.0 / Double(screenSize().width - CGRectGetWidth(avokado.frame)));
         
         //Replace timer to nearby exact minutes
         if ((frameChangedTime % 60.0) > 30.0) {
-            frameChangedTime =  frameChangedTime + 60.0 - (frameChangedTime % 60.0)
+            frameChangedTime =  frameChangedTime + 60.0 - (frameChangedTime % 60.0);
         } else {
-            frameChangedTime =  frameChangedTime - (frameChangedTime % 60.0)
+            frameChangedTime =  frameChangedTime - (frameChangedTime % 60.0);
         }
         
         //Show Timer
@@ -199,12 +201,12 @@ class SWViewController: UIViewController {
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        
 
         //Replace frame to nearby exact positions
-        avokado.frame.origin.x = CGFloat((frameChangedTime / 60.0) * (-36.0));
+        if(stateMachine.current() == 4) {
+            avokado.frame.origin.x = CGFloat((frameChangedTime / 60.0) * (-36.0));
+        }
 
-        
         /*
         UIView.animateWithDuration(0.1,
             animations: { () -> Void in
@@ -212,10 +214,8 @@ class SWViewController: UIViewController {
                 self.avokado.transform = CGAffineTransformMakeScale(1.0, 1.0)
             })
             { (Bool) -> Void in
-                
         }
 */
-
     }
 
 

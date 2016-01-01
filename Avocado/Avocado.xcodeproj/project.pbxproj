@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		52005D001C33314900DCA414 /* ShowTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52005CFF1C33314900DCA414 /* ShowTimer.swift */; };
+		5207E1BC1C35D41200F2CD24 /* StateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5207E1BB1C35D41200F2CD24 /* StateMachine.swift */; };
 		5274D9DF1C1786E9002D68FF /* avokado.png in Resources */ = {isa = PBXBuildFile; fileRef = 5274D9DE1C1786E9002D68FF /* avokado.png */; };
 		52967BD91BFE78250037985B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52967BD81BFE78250037985B /* Main.storyboard */; };
 		52B0F5D71BFA74CB005B90B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B0F5D61BFA74CB005B90B8 /* AppDelegate.swift */; };
 		52B0F5EC1BFA74CB005B90B8 /* AvocadoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B0F5EB1BFA74CB005B90B8 /* AvocadoTests.swift */; };
 		52B0F5F71BFA74CB005B90B8 /* AvocadoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B0F5F61BFA74CB005B90B8 /* AvocadoUITests.swift */; };
 		52B0F6051BFA765F005B90B8 /* SWViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B0F6041BFA765F005B90B8 /* SWViewController.swift */; };
-		52B4B3D91C319C31002EA944 /* StateTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B4B3D81C319C31002EA944 /* StateTimer.swift */; };
 		52FFD3671C163FA70097DC06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52FFD3661C163FA70097DC06 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		52005CFF1C33314900DCA414 /* ShowTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowTimer.swift; sourceTree = "<group>"; };
+		5207E1BB1C35D41200F2CD24 /* StateMachine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateMachine.swift; sourceTree = "<group>"; };
 		5274D9DE1C1786E9002D68FF /* avokado.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avokado.png; sourceTree = "<group>"; };
 		52967BD81BFE78250037985B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		52B0F5D31BFA74CB005B90B8 /* Avocado.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Avocado.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,7 +50,6 @@
 		52B0F5F61BFA74CB005B90B8 /* AvocadoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvocadoUITests.swift; sourceTree = "<group>"; };
 		52B0F5F81BFA74CB005B90B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52B0F6041BFA765F005B90B8 /* SWViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SWViewController.swift; sourceTree = "<group>"; };
-		52B4B3D81C319C31002EA944 /* StateTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StateTimer.swift; sourceTree = "<group>"; };
 		52FFD3661C163FA70097DC06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -107,8 +107,8 @@
 				52967BD81BFE78250037985B /* Main.storyboard */,
 				52B0F5E21BFA74CB005B90B8 /* Info.plist */,
 				52B0F6041BFA765F005B90B8 /* SWViewController.swift */,
-				52B4B3D81C319C31002EA944 /* StateTimer.swift */,
 				52005CFF1C33314900DCA414 /* ShowTimer.swift */,
+				5207E1BB1C35D41200F2CD24 /* StateMachine.swift */,
 			);
 			path = Avocado;
 			sourceTree = "<group>";
@@ -267,8 +267,8 @@
 			files = (
 				52005D001C33314900DCA414 /* ShowTimer.swift in Sources */,
 				52B0F6051BFA765F005B90B8 /* SWViewController.swift in Sources */,
-				52B4B3D91C319C31002EA944 /* StateTimer.swift in Sources */,
 				52B0F5D71BFA74CB005B90B8 /* AppDelegate.swift in Sources */,
+				5207E1BC1C35D41200F2CD24 /* StateMachine.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
